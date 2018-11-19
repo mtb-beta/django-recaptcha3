@@ -62,7 +62,7 @@ class ReCaptchaField(forms.CharField):
                     )
                 else:
                     raise ValidationError(
-                        _('reCaptcha invalid or expired, try again')
+                        _('reCaptcha invalid or expired, try again. error:%s' % json_response['error-codes'])
                     )
             else:
                 logger.exception('No error-codes received from Google reCaptcha server')
